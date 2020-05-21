@@ -1,6 +1,7 @@
 Prova di Scrittura con .md e plantuml per esame
 
-```plantuml
+@startuml
+
 class GasStationService{ 
 }
 
@@ -34,4 +35,5 @@ UserService <.. GasStationServiceimpl
 UserService --> UserServiceimpl : use
 UserServiceimpl --> UserRepository
 UserServiceimpl --> UserConverter
-```
+
+@enduml
