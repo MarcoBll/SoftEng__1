@@ -1,39 +1,65 @@
-Prova di Scrittura con .md e plantuml per esame
+# Dependency graph 
 
-@startuml
+@staruml
 
-class GasStationService{ 
-}
-
-class UserService{ 
+interface GasStationService{ 
 }
 
 class GasStationServiceimpl{ 
 }
 
-class UserServiceimpl{ 
-}
-
-class GasStationRepository{ 
-}
-
-class UserRepository{ 
-}
-
-class UserConverter{
+interface GasStationRepository{ 
 }
 
 class GasStationConverter{
 }
 
-GasStationService --> GasStationServiceimpl : use
+class GasStationDto{
+}
+
+class GasStation{
+}
+
+class GasStationRepositoryimpl{
+}
+
+interface UserService{ 
+}
+
+class UserServiceimpl{ 
+}
+
+interface UserRepository{ 
+}
+
+class UserRepositoryimpl{
+}
+
+class UserConverter{
+}
+
+class User{
+}
+
+class UserDto{
+}
+
+
+GasStationService <|.. GasStationServiceimpl 
 GasStationServiceimpl --> GasStationRepository 
 GasStationServiceimpl --> UserConverter 
 GasStationServiceimpl --> GasStationConverter
 UserService <.. GasStationServiceimpl
+GasStationConverter --> GasStationDto
+GasStationConverter --> GasStation
+GasStationRepository <|.. GasStationRepositoryimpl
 
-UserService --> UserServiceimpl : use
+
+UserService <|.. UserServiceimpl 
 UserServiceimpl --> UserRepository
 UserServiceimpl --> UserConverter
+UserConverter --> User
+UserConverter --> UserDto
+UserRepository <|.. UserRepositoryimpl
 
 @enduml
